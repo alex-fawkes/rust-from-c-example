@@ -7,5 +7,5 @@ test.exe: test.c mylib.lib
 	clang -o test.exe test.c mylib.lib
 
 clean:
-	del mylib.lib
-	del test.exe
+	del *.exe
+	del *.lib
