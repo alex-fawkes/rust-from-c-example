@@ -3,8 +3,8 @@
 #![no_std]
 
 #[no_mangle]
-pub extern fn add(lhs: u32, rhs: u32) -> u32 {
-    lhs + rhs
+pub extern fn add(left: u32, right: u32) -> u32 {
+    left + right
 }
 
 #[no_mangle]
