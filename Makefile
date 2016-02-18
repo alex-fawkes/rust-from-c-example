@@ -1,15 +1,11 @@
-all: test
+all: test.exe
 
-mylib.bc: mylib.rs
-	rustc --emit-llvm mylib.rs	
+mylib.lib: mylib.rs
+	rustc mylib.rs
 
-mylib.o: mylib.bc
-	clang -c mylib.bc
-
-test: test.c mylib.o
-	clang -o test test.c mylib.o
+test.exe: test.c mylib.lib
+	clang -o test.exe test.c mylib.lib
 
 clean:
-	rm *.bc
-	rm *.o
-	rm test
+	del mylib.lib
+	del test.exe
