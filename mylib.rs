@@ -4,7 +4,14 @@
 
 #[no_mangle]
 pub extern fn add(lhs: u32, rhs: u32) -> u32 {
-  lhs + rhs
+    lhs + rhs
+}
+
+#[no_mangle]
+pub extern fn fib(n: u32) -> u32 {
+    if n == 0 { return 0 }
+    if n == 1 { return 1 }
+    fib(n - 1) + fib(n - 2)
 }
 
 fn crash() -> ! {
