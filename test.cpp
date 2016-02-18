@@ -1,3 +1,5 @@
+#include "fawkes/static_asserts.hpp"
+
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
@@ -6,19 +8,6 @@ namespace fawkes {
     namespace rust {
         extern "C" std::uint32_t add(std::uint32_t lhs, std::uint32_t rhs);
         extern "C" std::uint32_t fib(std::uint32_t n);
-    }
-
-    namespace static_asserts {
-        template<std::size_t BitWidth>
-        void byte_aligned() {
-            static_assert(BitWidth % 8U == 0U, "unaligned bit width");
-        }
-
-        template<typename T, std::size_t MaximumBitWidth>
-        static void bit_width_at_most() {
-            byte_aligned<MaximumBitWidth>(); // no way to get unaligned bit width
-            static_assert(sizeof(T) * 8 <= MaximumBitWidth, "bit width too high");
-        }
     }
 
     unsigned int add(unsigned int lhs, unsigned int rhs) {
