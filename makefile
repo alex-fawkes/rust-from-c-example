@@ -7,5 +7,5 @@ test.exe: test.cpp mylib.lib
 	clang++ -std=c++11 -o test.exe test.cpp mylib.lib
 
 clean:
-	del *.exe
-	del *.lib
+	del *.exe 2>NUL
+	del *.lib 2>NUL
