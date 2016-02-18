@@ -6,7 +6,7 @@ namespace fawkes {
     namespace static_asserts {
         template<std::size_t bit_width>
         void byte_aligned() {
-            static_assert(bit_width % 8U == 0U, "unaligned bit width");
+            static_assert(bit_width % 8 == 0, "unaligned bit width");
         }
 
         template<typename T, std::size_t max_bit_width>
